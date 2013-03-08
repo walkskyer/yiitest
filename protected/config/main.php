@@ -16,7 +16,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-        'ext.yiimail.Mail'
+        'ext.yiimail.Mail',
+        'ext.yiimail.Activer'
 	),
 
 	'modules'=>array(

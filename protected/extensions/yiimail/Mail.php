@@ -26,6 +26,7 @@ class Mail
             $this->_config = require_once(MAIL_PATH . DIRECTORY_SEPARATOR . 'config.inc.php');
             $this->_mail = new PHPMailer();
             $this->_mail->IsSMTP();
+            $this->_mail->IsHTML(true);
             if ($this->_config != null) {
                 foreach ($this->_config as $key => $val) {
                     $this->_mail->$key = $val;

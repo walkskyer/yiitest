@@ -76,12 +76,15 @@ class UserController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));*/
             $_GET['id']=22;
-            $key=$this->_incodeKey();
-            $secret=$this->_getSecret($key);
-            $url=Yii::app()->urlManager->createUrl('/user/activeemail',array('key'=>$key,'secret'=>$secret));
-            echo $url;
+            $user=$this->loadModel();
+            $key=Activer::incodeKey($user->id.':'.$user->email.':'.time());
+            $secret=Activer::getSecret($key);
+            $data['send_mail']='walkskyer@qq.com';
+            $data['active_url']=Yii::app()->urlManager->createUrl('/user/activeemail',array('key'=>$key,'secret'=>$secret));
+            $body=$this->renderPartial('active_mail',$data,true);
+
             $email=new Mail();
-            $email->send('walkskyer@qq.com','sky','这是一封激活账号的邮件',$url);
+            $email->send('walkskyer@qq.com','sky','这是一封激活账号的邮件',$body);
 		}
 
 		$this->render('register',array(
@@ -91,37 +94,14 @@ class UserController extends Controller
     public function actionActiveEmail(){
         $secret=Yii::app()->getRequest()->getQuery('secret');
         $key=Yii::app()->getRequest()->getQuery('key');
-        if($this->_checkKey($secret,$key)){
+        if(Activer::checkKey($secret,$key)){
             echo '账号验证成功!';
 
         }else{
             echo '账号验证失败！请检查你的信息!';
         }
     }
-    private function _checkKey($secret,$key=false){
-        if($key !==false && $secret=== $this->_getSecret($key)){
-            return true;
-        }
-            return false;
-    }
-    private function _getSecret($key){
-        return md5($key);
-    }
-    /**
-     * @return string
-     */
-    private function _incodeKey(){
-        $user=$this->loadModel();
-        return base64_encode(urlencode($user->id.':'.$user->email.':'.time()));
-    }
 
-    /**
-     * @param $key
-     * @return array
-     */
-    public function _decodeKey($key){
-        return explode(':',urldecode(base64_decode($key)));
-    }
 
 	/**
 	 * Updates a particular model.
