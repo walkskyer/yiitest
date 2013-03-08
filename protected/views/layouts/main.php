@@ -34,6 +34,8 @@
 				array('label'=>'联系', 'url'=>array('/site/contact')),
                 array('label'=>'test模块', 'url'=>array('/test/default/index')),
 				array('label'=>'登陆', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'注册', 'url'=>array('/user/register'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'用户信息', 'url'=>array('/user/view/','username'=>Yii::app()->user->name), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'登出 ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>

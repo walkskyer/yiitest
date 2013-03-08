@@ -44,6 +44,7 @@ return array(
 			'urlFormat'=>'path',
             'showScriptName'=>false,
             'urlSuffix'=>'.htm',
+            'baseUrl'=>'http://yiitest.zwj',
 			/*'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
