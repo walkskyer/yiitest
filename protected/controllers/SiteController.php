@@ -110,4 +110,16 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    /**
+     * 测试yii-KindEditor扩展。
+     */
+    public function  actionTestKE(){
+        $model=new Article();
+        if(isset($_POST['Article'])){
+            $model->attributes=$_POST['Article'];
+            $model->save();
+        }
+        $this->render('TestKE',array('model'=>$model));
+    }
 }
