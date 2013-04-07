@@ -53,7 +53,7 @@
 class KindEditorWidget extends CInputWidget
 {
 	public $id;
-	public $language = '';
+	public $language = 'zh_CN';
 
 	/**
 	 * @var array the kindeditor items configuration.
@@ -81,7 +81,11 @@ class KindEditorWidget extends CInputWidget
 	 */
 	public function run()
 	{
-		$script = /*$script.*/'KindEditor.ready(function(K){var editor=K.create("textarea[id='.$this->id.']", {'.$this->renderItems($this->items).'})});';
+		$script =<<<EOF
+KindEditor.ready(function(K){
+var editor=K.create("textarea[id={$this->id}]", {{$this->renderItems($this->items)}});
+});
+EOF;
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
 		$cs->registerScript($this->id, $script);

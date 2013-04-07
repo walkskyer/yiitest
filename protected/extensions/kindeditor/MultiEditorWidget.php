@@ -10,7 +10,7 @@
 /**
  * 这是rock写的一个kindeditor扩展，主要功能是实现同一页面可创建多个编辑器。
  */
-class EditorWidget extends  CWidget{
+class MultiEditorWidget extends  CWidget{
 
     public  $elements = array();//元素数组
     public  $string = '' ;
