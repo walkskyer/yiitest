@@ -81,14 +81,22 @@ class KindEditorWidget extends CInputWidget
 	 */
 	public function run()
 	{
-		$script =<<<EOF
-KindEditor.ready(function(K){
-var editor=K.create("textarea[id={$this->id}]", {{$this->renderItems($this->items)}});
-});
-EOF;
+        $id=$this->id;
+        $jsString='';
+        $config="var config ={{$this->renderItems($this->items)}};";
+        if(is_array($id)){//同时创建多个编辑器
+            foreach($id as $key=>$val){
+                $jsString.="var editor{$key}=K.create('textarea[id={$val}]', config);";
+            }
+            $id=md5(serialize($id));
+        }elseif(is_string($id)){
+            $jsString="var editor=K.create('textarea[id={$this->id}]', config);";
+        }
+        $script ="KindEditor.ready(function(K){{$config}{$jsString}});";
+
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
-		$cs->registerScript($this->id, $script);
+		$cs->registerScript($id, $script);
 		$cs->registerScriptFile($this->assetsUrl.'/lang/'.$this->language.'.js', CClientScript::POS_HEAD);
 	}
 

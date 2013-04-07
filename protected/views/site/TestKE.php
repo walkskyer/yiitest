@@ -10,7 +10,7 @@
 /* @var SiteController $this*/
 /* @var Article $model*/
 $this->widget('ext.kindeditor.KindEditorWidget',array(
-    'id'=>'Article_content',   //Textarea id
+    'id'=>array('Article_content','Article_title'),   //Textarea id
     // Additional Parameters (Check http://www.kindsoft.net/docs/option.html)
     'items' => array(
         'width'=>'700px',
@@ -36,7 +36,7 @@ $this->widget('ext.kindeditor.KindEditorWidget',array(
 )); ?>
     <div class="row">
         <?php echo $form->labelEx($model,'title'); ?>
-        <?php echo $form->textField($model,'title',array('visibility'=>'hidden')); ?>
+        <?php echo $form->textArea($model,'title',array('visibility'=>'hidden')); ?>
         <?php echo $form->error($model,'title'); ?>
     </div>
     <div class="row">
