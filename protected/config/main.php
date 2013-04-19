@@ -39,7 +39,7 @@ return array(
             'delimeter'=>'@', //default:-
             'debug'=>true, //default :false
             'pageSize'=>10, // default : 15
-            'superUser' =>'test2', //default: Authorizer
+            'superUser' =>'Authorizer', //default: Authorizer
             'css'=>'srbac.css', //default: srbac.css
             'layout'=>
             'application.views.layouts.main', //default: application.views.layouts.main,
