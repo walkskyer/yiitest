@@ -59,10 +59,17 @@ class KindEditorWidget extends CInputWidget
 	 * @var array the kindeditor items configuration.
 	 */
 	public $items = array(
-        'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
-        'underline', 'removeformat', '|', 'justifyleft', 'justifycenter',
-        'justifyright', 'insertorderedlist','insertunorderedlist', '|',
-        'emoticons', 'image', 'link',);
+        'width'=>'',
+        'height'=>'',
+        'themeType'=>'simple',
+        'allowImageUpload'=>true,
+        'allowFileManager'=>true,
+        'items'=>array(
+            'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
+            'underline', 'removeformat', '|', 'justifyleft', 'justifycenter',
+            'justifyright', 'insertorderedlist','insertunorderedlist', '|',
+            'emoticons', 'image', 'link',),
+    );
 
 	/**
 	 * Initializes the widget.

@@ -12,18 +12,6 @@
 $this->widget('ext.kindeditor.KindEditorWidget',array(
     'id'=>array('Article_content','Article_title'),   //Textarea id
     // Additional Parameters (Check http://www.kindsoft.net/docs/option.html)
-    'items' => array(
-        'width'=>'700px',
-        'height'=>'300px',
-        'themeType'=>'simple',
-        'allowImageUpload'=>true,
-        'allowFileManager'=>true,
-        'items'=>array(
-            'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
-            'underline', 'removeformat', '|', 'justifyleft', 'justifycenter',
-            'justifyright', 'insertorderedlist','insertunorderedlist', '|',
-            'emoticons', 'image', 'link',),
-    ),
 )); ?>
 
 <div class="form">
