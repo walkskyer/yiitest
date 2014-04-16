@@ -10,9 +10,16 @@
 /* @var SiteController $this*/
 /* @var Article $model*/
 $this->widget('ext.kindeditor.KindEditorWidget',array(
-    'id'=>array('Article_content','Article_title'),   //Textarea id
+    'id'=>array('Article_title'),   //Textarea id
     // Additional Parameters (Check http://www.kindsoft.net/docs/option.html)
-)); ?>
+));
+$this->widget('ext.kindeditor.KindEditorWidget',array(
+    'id'=>'Article_content',
+    'items'=>array(
+      'height'=>'1000px',
+    ),
+));
+?>
 
 <div class="form">
     <?php
