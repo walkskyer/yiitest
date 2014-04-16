@@ -4,5 +4,6 @@
 /protected/runtime/*
 themes/classic/views/
 config.inc.php
+
 !index.html
-/protected/extensions/ucenter/api/config.inc.php
+!index.htm
