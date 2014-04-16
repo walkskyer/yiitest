@@ -14,7 +14,8 @@ $this->widget('ext.kindeditor.KindEditorWidget',array(
     // Additional Parameters (Check http://www.kindsoft.net/docs/option.html)
 ));
 $this->widget('ext.kindeditor.KindEditorWidget',array(
-    'id'=>'Article_content',
+    'model'=>$model,
+    'id'=>'content',
     'items'=>array(
       'height'=>'1000px',
     ),

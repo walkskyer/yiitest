@@ -55,6 +55,8 @@ class KindEditorWidget extends CInputWidget
 	public $id;
 	public $language = 'zh_CN';
 
+    public $model=null;
+
     /**
      * @var array the kindeditor Default items configuration.
      */
@@ -104,13 +106,16 @@ class KindEditorWidget extends CInputWidget
         $id=$this->id;
         $jsString='';
         $config="var config ={{$this->renderItems($this->items)}};";
+        $idPre= ($this->model !== null?get_class($this->model).'_':'');
         if(is_array($id)){//同时创建多个编辑器
             foreach($id as $key=>$val){
+                $val = $idPre.$val;
                 $jsString.="var editor{$key}=K.create('textarea[id={$val}]', config);";
             }
             $id=md5(serialize($id));
         }elseif(is_string($id)){
-            $jsString="var editor=K.create('textarea[id={$this->id}]', config);";
+            $id = $idPre.$this->id;
+            $jsString="var editor=K.create('textarea[id={$id}]', config);";
         }
         $script ="KindEditor.ready(function(K){{$config}{$jsString}});";
 
