@@ -55,12 +55,12 @@ class KindEditorWidget extends CInputWidget
 	public $id;
 	public $language = 'zh_CN';
 
-	/**
-	 * @var array the kindeditor items configuration.
-	 */
-	public $items = array(
-        'width'=>'',
-        'height'=>'',
+    /**
+     * @var array the kindeditor Default items configuration.
+     */
+    public $_items = array(
+        'width'=>'670px',
+        'height'=>'400px',
         'themeType'=>'simple',
         'allowImageUpload'=>true,
         'allowFileManager'=>true,
@@ -74,6 +74,11 @@ class KindEditorWidget extends CInputWidget
             'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
             'anchor', 'link', 'unlink', '|', 'about',),
     );
+
+	/**
+	 * @var array the kindeditor items configuration.
+	 */
+	public $items = array();
 
 	/**
 	 * Initializes the widget.
@@ -122,7 +127,7 @@ class KindEditorWidget extends CInputWidget
 	protected function renderItems($items)
 	{
 		$script = '';
-		foreach ($items as $key => $item)
+		foreach (array_merge($this->_items,$items) as $key => $item)
 		{
 			if(is_array($item))
 			{
