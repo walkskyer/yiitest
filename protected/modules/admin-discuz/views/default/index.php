@@ -23,36 +23,36 @@
                 <div class="nav">
                     <ul id="topmenu">
                         <li><em><a href="javascript:;" id="header_index" hidefocus="true"
-                                   onClick="toggleMenu('index', '<?php echo url('admin/default/info') ?>');">网站管理</a></em>
+                                   onClick="toggleMenu('index', '<?php echo $this->createUrl('default/info') ?>');">网站管理</a></em>
                         </li>
                         <li>
                             <em>
                                 <a href="javascript:;" id="header_field1" hidefocus="true"
-                                   onClick="toggleMenu('field1', '<?php echo url('admin/field1/admin') ?>');">field1管理</a>
+                                   onClick="toggleMenu('field1', '<?php echo $this->createUrl('field1/admin') ?>');">field1管理</a>
                             </em>
                         </li>
                         <li>
                             <em>
                                 <a href="javascript:;" id="header_field2" hidefocus="true"
-                                   onClick="toggleMenu('field2', '<?php echo url('admin/field2/admin') ?>');">field2</a>
+                                   onClick="toggleMenu('field2', '<?php echo $this->createUrl('field2/admin') ?>');">field2</a>
                             </em>
                         </li>
                         <li>
                             <em>
                                 <a href="javascript:;" id="header_field3" hidefocus="true"
-                                   onClick="toggleMenu('field3', '<?php echo url('/admin/field3/admin') ?>');">field3管理</a>
+                                   onClick="toggleMenu('field3', '<?php echo $this->createUrl('field3/admin') ?>');">field3管理</a>
                             </em>
                         </li>
                         <li>
                             <em>
                                 <a href="javascript:;" id="header_field4" hidefocus="true"
-                                   onClick="toggleMenu('field4', '<?php echo url('/admin/field4/admin') ?>');">field4管理</a>
+                                   onClick="toggleMenu('field4', '<?php echo $this->createUrl('field4/admin') ?>');">field4管理</a>
                             </em>
                         </li>
                         <li>
                             <em>
                                 <a href="javascript:;" id="header_user" hidefocus="true"
-                                   onClick="toggleMenu('user', '<?php echo url('/admin/user') ?>');">用户</a>
+                                   onClick="toggleMenu('user', '<?php echo $this->createUrl('user') ?>');">用户</a>
                             </em>
                         </li>
                     </ul>
@@ -110,32 +110,32 @@
 
                 $attributes_anchor = array('hidefocus' => "true", 'target' => "main");
                 echo ul(array(
-                    l('网站设置', url('admin/setting'), $attributes_anchor),
-                    l('广告管理', url('admin/ad/index'), $attributes_anchor),
-                    l('链接(菜单)', url('admin/link/index/link'), $attributes_anchor),
+                    l('网站设置', $this->createUrl('setting'), $attributes_anchor),
+                    l('广告管理', $this->createUrl('ad/index'), $attributes_anchor),
+                    l('链接(菜单)', $this->createUrl('link/index/link'), $attributes_anchor),
                 ), array('id' => 'menu_index', 'style' => 'display: none'));
 
                 echo ul(array(
-                    l('field1管理', url('admin/field1/admin'), $attributes_anchor),
-                    l('新建field1', url('admin/field1/create'), $attributes_anchor),
+                    l('field1管理', $this->createUrl('field1/admin'), $attributes_anchor),
+                    l('新建field1', $this->createUrl('field1/create'), $attributes_anchor),
                 ), array('id' => 'menu_field1', 'style' => 'display: none'));
 
                 echo ul(array(
-                    l('发布field2', url('admin/field2/create'), $attributes_anchor),
-                    l('field2管理', url('admin/field2/admin'), $attributes_anchor),
-                    l('field2分类', url('admin/articleCategory/admin'), $attributes_anchor),
+                    l('发布field2', $this->createUrl('field2/create'), $attributes_anchor),
+                    l('field2管理', $this->createUrl('field2/admin'), $attributes_anchor),
+                    l('field2分类', $this->createUrl('articleCategory/admin'), $attributes_anchor),
                 ), array('id' => 'menu_field2', 'style' => 'display: none'));
 
                 echo ul(array(
-                    l('添加field3', url('admin/field3/create'), $attributes_anchor),
-                    l('field3管理', url('admin/field3/admin'), $attributes_anchor),
-                    l('field3分类', url('admin/field3Category/admin'), $attributes_anchor),
+                    l('添加field3', $this->createUrl('field3/create'), $attributes_anchor),
+                    l('field3管理', $this->createUrl('field3/admin'), $attributes_anchor),
+                    l('field3分类', $this->createUrl('field3Category/admin'), $attributes_anchor),
                 ), array('id' => 'menu_field3', 'style' => 'display: none'));
 
                 echo ul(array(
-                    l('添加field4', url('admin/field4/create'), $attributes_anchor),
-                    l('field4管理', url('admin/field4/admin'), $attributes_anchor),
-                    l('field4管理', url('admin/consult/admin'), $attributes_anchor),
+                    l('添加field4', $this->createUrl('field4/create'), $attributes_anchor),
+                    l('field4管理', $this->createUrl('field4/admin'), $attributes_anchor),
+                    l('field4管理', $this->createUrl('consult/admin'), $attributes_anchor),
                 ), array('id' => 'menu_field4', 'style' => 'display: none'));
 
                 echo ul(array(
@@ -144,7 +144,7 @@
             </div>
         </td>
         <td valign="top" width="100%" class="mask" id="mainframes">
-            <iframe src="<?php echo url('admin/default/info') ?>" id="main" name="main" onload="mainFrame(0)"
+            <iframe src="<?php echo $this->createUrl('default/info') ?>" id="main" name="main" onload="mainFrame(0)"
                     width="100%" height="100%" frameborder="0" scrolling="yes"
                     style="overflow: visible;display:"></iframe>
         </td>
